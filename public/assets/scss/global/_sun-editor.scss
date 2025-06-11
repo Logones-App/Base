@@ -1,0 +1,134 @@
+//sun-editor
+.sun-editor-editable {
+    font-family: "IBM Plex Sans", sans-serif !important;
+}
+
+.sun-editor {
+    h4 {
+        margin: 0 !important;
+    }
+
+    .se-wrapper {
+        strong {
+            font-size: 1rem !important;
+        }
+    }
+}
+.sun-editor .se-toolbar {
+    background-color: $custom-white !important;
+    outline: 1px solid $default-border !important;
+}
+.sun-editor {
+    background-color: $custom-white !important;
+    border-color: $default-border !important;
+    color: $default-text-color !important;
+
+    .se-btn:enabled.on {
+        background-color: $default-background !important;
+        border-color: $default-border !important;
+    }
+
+    .se-list-layer {
+        background-color: $custom-white !important;
+        border-color: $default-border !important;
+    }
+
+    .se-btn-list.default_value {
+        background-color: $default-background !important;
+        border-top-color: $default-border !important;
+        border-bottom-color: $default-border !important;
+    }
+
+    .se-btn-list:focus,
+    .se-btn-list:hover {
+        background-color: $black-1 !important;
+        border-color: $default-border !important;
+    }
+
+    .se-dialog .se-dialog-inner .se-dialog-header {
+        border-color: $default-border !important;
+    }
+
+    .se-dialog .se-dialog-inner .se-dialog-content {
+        background-color: $custom-white !important;
+        border-color: $default-border !important;
+    }
+
+    .se-dialog button,
+    .se-dialog input,
+    .se-dialog label {
+        color: $default-text-color !important;
+    }
+
+    .se-dialog .se-dialog-inner .se-dialog-form .se-input-form.se-input-url,
+    .se-dialog .se-dialog-inner .se-dialog-form .se-input-form,
+    .se-dialog .se-dialog-inner .se-dialog-form .se-input-control {
+        background-color: $custom-white !important;
+        border-color: $default-border !important;
+
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+
+    .se-input-form {
+        padding-block-start: .25rem !important;
+
+        &::-webkit-file-upload-button {
+            background-color: $custom-white !important;
+            color: $default-text-color !important;
+        }
+    }
+
+    .se-dialog .se-dialog-inner .se-dialog-footer,
+    .se-dialog .se-dialog-inner .se-dialog-btn-revert,
+    .se-dialog-tabs,
+    .se-dialog-tabs button {
+        border-color: $default-border !important;
+    }
+
+    .se-dialog-footer {
+        .se-btn-primary {
+            color: #000 !important;
+        }
+    }
+
+    .se-dialog .se-dialog-inner .se-dialog-form .se-dialog-form-files .se-dialog-files-edge-button {
+        border-color: $default-border !important;
+    }
+
+    .se-dialog-tabs button.active {
+        background-color: $custom-white !important;
+    }
+
+    .se-dialog-tabs button {
+        background-color: $default-background !important;
+    }
+
+    .se-btn-module-border {
+        border-color: $default-border !important;
+    }
+
+    button {
+        color: $default-text-color !important;
+    }
+
+    .se-btn:enabled:focus,
+    .se-btn:enabled:hover {
+        background-color: $black-5 !important;
+        border-color: $default-border !important;
+    }
+
+    .sun-editor-editable {
+        background-color: $custom-white !important;
+        color: $default-text-color !important;
+    }
+
+    .se-resizing-bar {
+        border-top-color: $default-border !important;
+        background-color: $custom-white !important;
+    }
+}
+.sun-editor-editable {
+    font-family: "IBM Plex Sans", sans-serif !important;
+}
