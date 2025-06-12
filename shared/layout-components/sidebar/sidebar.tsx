@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import SimpleBar from 'simplebar-react';
 import Menuloop from "./menuloop";
-import { useThemeState, setTheme } from '@/shared/state/themeState';
+import { useThemeState, setTheme } from '@/shared/state/layout/themeState';
 import { basePath } from "../../../next.config";
 import MENUITEMS from "./nav";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -169,7 +169,7 @@ const Sidebar = () => {
 			let mainContainer1Width = mainContainer1.offsetWidth;
 
 			if (menuNav.scrollWidth > mainContainer1.offsetWidth) {
-				if (!(themeState.dataVerticalStyle.dir === "rtl")) {
+				if (!(themeState.dir === "rtl")) {
 					if (Math.abs(check) > Math.abs(marginLeftValue)) {
 						menuNav.style.marginInlineEnd = "0";
 

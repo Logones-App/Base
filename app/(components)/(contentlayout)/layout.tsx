@@ -4,7 +4,7 @@ import Footer from "@/shared/layout-components/footer/footer"
 import Header from "@/shared/layout-components/header/header"
 import Sidebar from "@/shared/layout-components/sidebar/sidebar"
 import Switcher from "@/shared/layout-components/switcher/switcher"
-import { useThemeState, setTheme } from '@/shared/state/themeState';
+import { useThemeState, setTheme } from '@/shared/state/layout/themeState';
 import { Fragment,  useState } from "react"
 
 const Layout = ({children,}:any) => {

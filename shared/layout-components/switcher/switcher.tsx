@@ -3,7 +3,7 @@ import Themeprimarycolor, * as switcherdata from "../../data/switcherdata/switch
 import { Button, Nav, Tab } from 'react-bootstrap';
 import Link from 'next/link';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-import { useThemeState, setTheme } from '@/shared/state/themeState';
+import { useThemeState, setTheme } from '@/shared/state/layout/themeState';
 
 const Switcher = () => {
     const themeState = useThemeState();

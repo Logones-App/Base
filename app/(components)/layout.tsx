@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import * as switcherdata from '../../shared/data/switcherdata/switcherdata';
-import { useThemeState, setTheme } from '@/shared/state/themeState';
-import { useHtmlAttributes } from '@/shared/state/useHtmlAttributes';
+import { useThemeState, setTheme } from '@/shared/state/layout/themeState';
+import { useHtmlAttributes } from '@/shared/state/layout/useHtmlAttributes';
 
 function Layout({children}: any) {
   const themeState = useThemeState();

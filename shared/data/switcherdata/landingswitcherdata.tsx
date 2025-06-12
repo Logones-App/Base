@@ -1,4 +1,4 @@
-import { themeState } from "@/shared/state/themeState";
+import { themeState } from "@/shared/state/layout/themeState";
 
 export function Dark(actionfunction:any) {
     const theme  = themeState.get();

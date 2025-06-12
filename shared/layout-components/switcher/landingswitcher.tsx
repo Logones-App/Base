@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react';
 import Themeprimarycolor, * as switcherdata from "../../data/switcherdata/switcherdata";
-import { useThemeState, setTheme } from '@/shared/state/themeState';
+import { useThemeState, setTheme } from '@/shared/state/layout/themeState';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Button } from 'react-bootstrap';
 
