@@ -69,7 +69,6 @@ const Header = () => {
         if (themeState.dataThemeMode != 'dark') {
             setTheme({
                 bodyBg: '',
-                bodyBg2: '',
                 darkBg: '',
                 inputBorder: '',
                 Light: '',
