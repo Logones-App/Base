@@ -2,7 +2,7 @@
 import { Link } from "@/i18n/navigation";
 import React, { useState } from "react";
 import { Button, Card, Col, Form, InputGroup, Row } from "react-bootstrap";
-import { signUp } from "@/lib/supabase/auth";
+import { signUp } from "@/lib/supabase/auth/auth";
 
 const Basic = () => {
   const [passwordshow1, setpasswordshow1] = useState(false);
