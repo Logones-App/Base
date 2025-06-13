@@ -1,10 +1,10 @@
 "use client";
 import React from 'react'
 import { Badge, Card, Col, Dropdown, Form, Row } from 'react-bootstrap'
-import { Candidatesdata, Candidatesdatas, Conversionratio, Profit, Profitearned, Revenueanalytics, Totalcustomers, Totaldeals, Totalrevenue } from '../../../../../shared/data/charts/dashboard'
+import { Candidatesdata, Candidatesdatas, Conversionratio, Profit, Profitearned, Revenueanalytics, Totalcustomers, Totaldeals, Totalrevenue } from '@/shared/data/charts/dashboard'
 import Link from "next/link";
-import { Dealsstatistics } from '../../../../../shared/data/dashboards/crmdata'
-import Seo from '../../../../../shared/layout-components/seo/seo';
+import { Dealsstatistics } from '@/shared/data/dashboards/crmdata'
+import Seo from '@/shared/layout-components/seo/seo';
 
 const Crm = () => {
     return (

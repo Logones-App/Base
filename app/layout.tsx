@@ -1,15 +1,23 @@
-"use client"
-import { Inter } from "next/font/google";
-import "./globals.scss";
+import type { Metadata } from "next";
+import LayoutClient from "./layoutClient";
 
+export const metadata: Metadata = {
+  title: "Wnex Starterkit",
+  description: "Admin dashboard template",
+};
 
-const RootLayout = ({children}:any) =>{
-    return(
-      <html lang="en">
-        <body>
-          {children}
-        </body>
-      </html>
-    )
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html>
+      <body>
+      <LayoutClient />
+      {children}
+    
+    </body>
+    </html>
+  );
 }
-export default RootLayout

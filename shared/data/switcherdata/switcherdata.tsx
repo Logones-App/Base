@@ -1,6 +1,6 @@
 "use client"
 import { MENUITEMS } from "@/shared/layout-components/sidebar/nav";
-import { themeState } from "@/shared/state/layout/themeState";
+import { themeState } from "@/lib/legendstate/layout/themeState";
 import { ClassAttributes, InputHTMLAttributes, JSX, useState } from "react";
 
 export function Dark(actionfunction:any) {

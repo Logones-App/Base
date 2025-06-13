@@ -1,13 +1,14 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+const withNextIntl = createNextIntlPlugin();
 
 /**@type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === "production";
 const nextConfig = {
-  output: "export",
+  /* output: "export", */
   reactStrictMode: true,
   trailingSlash: true,
-  swcMinify: true,
   basePath: isProd ? "" : undefined,
-  assetPrefix : isProd ? "" : undefined,
+  assetPrefix: isProd ? "" : undefined,
   images: {
     loader: "imgix",
     path: "/",
@@ -17,4 +18,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

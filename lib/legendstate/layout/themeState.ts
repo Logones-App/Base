@@ -38,6 +38,7 @@ export const themeState = observable(initialState);
  * @param payload Objet partiel du state à fusionner.
  */
 export function setTheme(payload: Partial<LayoutStateType>) {
+    console.log('setTheme', payload);
     themeState.assign(
         Object.fromEntries(
             Object.entries(payload).map(([key, value]) => [key, typeof value === 'object' && 'get' in value ? value : value])

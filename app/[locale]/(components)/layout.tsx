@@ -1,12 +1,13 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import * as switcherdata from '../../shared/data/switcherdata/switcherdata';
-import { useThemeState, setTheme } from '@/shared/state/layout/themeState';
-import { useHtmlAttributes } from '@/shared/state/layout/useHtmlAttributes';
+import * as switcherdata from '@/shared/data/switcherdata/switcherdata';
+import { useThemeState, setTheme } from '@/lib/legendstate/layout/themeState';
+import { useHtmlAttributes } from '@/lib/legendstate/layout/useHtmlAttributes';
 
 function Layout({children}: any) {
   const themeState = useThemeState();
   useHtmlAttributes(); // Synchronize <html> attributes from Legend State
+  console.log('Legend themeState', themeState);
   const customstyles: any = {
     ...(themeState.colorPrimaryRgb !== '' && { '--primary-rgb': themeState.colorPrimaryRgb }),
     ...(themeState.colorPrimary !== '' && { '--primary': themeState.colorPrimary }),
@@ -25,7 +26,7 @@ function Layout({children}: any) {
   return (
     <>
       {/* Plus de <div> inutile, le style et la classe sont gérés sur <body> via le hook */}
-      {pageloading && children}
+      {children}
     </>
   )
 }

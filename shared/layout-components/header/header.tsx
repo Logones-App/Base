@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Alert, Badge, Button, ButtonGroup, Card, Col, Dropdown, Form, ListGroup, Modal } from 'react-bootstrap'
 import Link from 'next/link'
 import { MENUITEMS } from '../sidebar/nav';
-import { useThemeState, setTheme } from '@/shared/state/layout/themeState';
+import { useThemeState, setTheme } from '@/lib/legendstate/layout/themeState';
 import { Data1, Data2, Data3 } from './headerdata'
-import { basePath } from '../../../next.config.js';
 
 const Header = () => {
+
+
     const themeState = useThemeState();
     const [showa, setShowa] = useState(false);
 
@@ -196,7 +197,21 @@ useEffect(() => {
           // themeState.dataHeaderStyles == 'dark' ? 'light' : 'dark',
         }
       }
+
+  // Bouton de test pour ouvrir/fermer la sidebar
+  const isSidebarOpen = themeState.dataToggled !== "";
+
+        // Bouton de test pour ouvrir/fermer la sidebar (force l'état open/close, visible et simple)
+  const toggleSidebar1 = () => {
+    // Pour debug, on force open/close ("open" ou "close")
+    console.log("Sidebar toggled");
+    setTheme({ ...themeState, dataToggled: isSidebarOpen ? "" : "icon-overlay-close" });
+    console.log("Sidebar toggled:", isSidebarOpen ? "close" : "open");
+    console.log("Current theme state:", themeState);
+  };
+
       const toggleSidebar = () => {
+        setTheme({ dataToggled: "", iconOverlay: '' });
         let sidemenuType = themeState.dataNavLayout;
         if (window.innerWidth >= 992) {
             if (sidemenuType === "vertical") {
@@ -371,23 +386,24 @@ useEffect(() => {
     };
     return (
         <>
+            
             <header className="app-header">
                 <div className="main-header-container container-fluid">
                     <div className="header-content-left">
                         <div className="header-element">
                             <div className="horizontal-logo">
                                 <Link href="/dashboards/crm" className="header-logo">
-                                    <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/desktop-logo.png`} alt="logo" className="desktop-logo" />
-                                    <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/toggle-logo.png`} alt="logo" className="toggle-logo" />
-                                    <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/desktop-dark.png`} alt="logo" className="desktop-dark" />
-                                    <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/toggle-dark.png`} alt="logo" className="toggle-dark" />
-                                    <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/desktop-white.png`} alt="logo" className="desktop-white" />
-                                    <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/toggle-white.png`} alt="logo" className="toggle-white" />
+                                    <img src={`/assets/images/brand-logos/desktop-logo.png`} alt="logo" className="desktop-logo" />
+                                    <img src={`/assets/images/brand-logos/toggle-logo.png`} alt="logo" className="toggle-logo" />
+                                    <img src={`/assets/images/brand-logos/desktop-dark.png`} alt="logo" className="desktop-dark" />
+                                    <img src={`/assets/images/brand-logos/toggle-dark.png`} alt="logo" className="toggle-dark" />
+                                    <img src={`/assets/images/brand-logos/desktop-white.png`} alt="logo" className="desktop-white" />
+                                    <img src={`/assets/images/brand-logos/toggle-white.png`} alt="logo" className="toggle-white" />
                                 </Link>
                             </div>
                         </div>
                         <div className="header-element" >
-                            <Link aria-label="Hide Sidebar" onClick={() => toggleSidebar()}
+                            <Link aria-label="Hide Sidebar" onClick={() => toggleSidebar1()}
                                 className="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle" data-bs-toggle="sidebar" href="#!" scroll={false}><span></span></Link>
                         </div>
 
@@ -401,13 +417,13 @@ useEffect(() => {
                         <Dropdown className="header-element country-selector">
                             <Dropdown.Toggle as='a' className="header-link dropdown-toggle no-caret" data-bs-auto-close="outside" data-bs-toggle="dropdown">
 
-                                <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/flags/us_flag.jpg`} alt="img" className="rounded-circle header-link-icon" />
+                                <img src={`/assets/images/flags/us_flag.jpg`} alt="img" className="rounded-circle header-link-icon" />
                             </Dropdown.Toggle>
                             <Dropdown.Menu className="main-header-dropdown dropdown-menu-end" data-popper-placement="none">
                                 <li>
                                     <Dropdown.Item  className="d-flex align-items-center" >
                                         <span className="avatar avatar-xs lh-1 me-2">
-                                            <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/flags/us_flag.jpg`} alt="img" />
+                                            <img src={`/assets/images/flags/us_flag.jpg`} alt="img" />
                                         </span>
                                         English
                                     </Dropdown.Item>
@@ -415,7 +431,7 @@ useEffect(() => {
                                 <li>
                                     <Dropdown.Item  className="d-flex align-items-center" >
                                         <span className="avatar avatar-xs lh-1 me-2">
-                                            <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/flags/spain_flag.jpg`} alt="img" />
+                                            <img src={`/assets/images/flags/spain_flag.jpg`} alt="img" />
                                         </span>
                                         Spanish
                                     </Dropdown.Item>
@@ -423,7 +439,7 @@ useEffect(() => {
                                 <li>
                                     <Dropdown.Item  className="d-flex align-items-center">
                                         <span className="avatar avatar-xs lh-1 me-2">
-                                            <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/flags/french_flag.jpg`} alt="img" />
+                                            <img src={`/assets/images/flags/french_flag.jpg`} alt="img" />
                                         </span>
                                         French
                                     </Dropdown.Item>
@@ -431,7 +447,7 @@ useEffect(() => {
                                 <li>
                                     <Dropdown.Item  className="d-flex align-items-center" >
                                         <span className="avatar avatar-xs lh-1 me-2">
-                                            <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/flags/germany_flag.jpg`} alt="img" />
+                                            <img src={`/assets/images/flags/germany_flag.jpg`} alt="img" />
                                         </span>
                                         German
                                     </Dropdown.Item>
@@ -439,7 +455,7 @@ useEffect(() => {
                                 <li>
                                     <Dropdown.Item  className=" d-flex align-items-center" >
                                         <span className="avatar avatar-xs lh-1 me-2">
-                                            <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/flags/italy_flag.jpg`} alt="img" />
+                                            <img src={`/assets/images/flags/italy_flag.jpg`} alt="img" />
                                         </span>
                                         Italian
                                     </Dropdown.Item>
@@ -447,7 +463,7 @@ useEffect(() => {
                                 <li>
                                     <Dropdown.Item  className="d-flex align-items-center" >
                                         <span className="avatar avatar-xs lh-1 me-2">
-                                            <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/flags/russia_flag.jpg`} alt="img" />
+                                            <img src={`/assets/images/flags/russia_flag.jpg`} alt="img" />
                                         </span>
                                         Russian
                                     </Dropdown.Item>
@@ -483,7 +499,7 @@ useEffect(() => {
                                     {cartItems.map((idx) => (
                                         <Dropdown.Item as='li' key={Math.random()} >
                                             <div className="d-flex align-items-start cart-dropdown-item">
-                                                <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}${idx.src}`} alt="img" className="avatar avatar-sm avatar-rounded br-5 me-3" />
+                                                <img src={`/assets/images${idx.src}`} alt="img" className="avatar avatar-sm avatar-rounded br-5 me-3" />
                                                 <div className="flex-grow-1">
                                                     <div className="d-flex align-items-start justify-content-between mb-0">
                                                         <div className="mb-0 fs-13 text-dark fw-semibold">
@@ -602,7 +618,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/figma.png`} alt="" />
+                                                        <img src={`/assets/images/apps/figma.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Figma</span>
                                                 </div>
@@ -612,7 +628,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/microsoft-powerpoint.png`} alt="" />
+                                                        <img src={`/assets/images/apps/microsoft-powerpoint.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Power Point</span>
                                                 </div>
@@ -622,7 +638,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/microsoft-word.png`} alt="" />
+                                                        <img src={`/assets/images/apps/microsoft-word.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">MS Word</span>
                                                 </div>
@@ -632,7 +648,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/calender.png`} alt="" />
+                                                        <img src={`/assets/images/apps/calender.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Calendar</span>
                                                 </div>
@@ -642,7 +658,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/sketch.png`} alt="" />
+                                                        <img src={`/assets/images/apps/sketch.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Sketch</span>
                                                 </div>
@@ -652,7 +668,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/google-docs.png`} alt="" />
+                                                        <img src={`/assets/images/apps/google-docs.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Docs</span>
                                                 </div>
@@ -662,7 +678,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/google.png`} alt="" />
+                                                        <img src={`/assets/images/apps/google.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Google</span>
                                                 </div>
@@ -672,7 +688,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/translate.png`} alt="" />
+                                                        <img src={`/assets/images/apps/translate.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Translate</span>
                                                 </div>
@@ -682,7 +698,7 @@ useEffect(() => {
                                             <Link href="#!" scroll={false}>
                                                 <div className="text-center p-3 related-app">
                                                     <span className="avatar avatar-sm avatar-rounded">
-                                                        <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/apps/google-sheets.png`} alt="" />
+                                                        <img src={`/assets/images/apps/google-sheets.png`} alt="" />
                                                     </span>
                                                     <span className="d-block fs-12">Sheets</span>
                                                 </div>
@@ -710,7 +726,7 @@ useEffect(() => {
               <Dropdown.Toggle as="a" href="#!" className="header-link dropdown-toggle no-caret" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                 <div className="d-flex align-items-center">
                   <div className="me-sm-2 me-0">
-                    <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/faces/9.jpg`} alt="img" width="32" height="32" className="rounded-circle" />
+                    <img src={`/assets/images/faces/9.jpg`} alt="img" width="32" height="32" className="rounded-circle" />
                   </div>
                   <div className="d-sm-block d-none">
                                         <p className="fw-semibold mb-0 lh-1">Json Taylor</p>
