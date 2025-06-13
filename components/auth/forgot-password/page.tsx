@@ -2,8 +2,8 @@
 import { Link } from "@/i18n/navigation";
 import React, { useState } from "react";
 import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
-import Seo from "@/components/common/layout/seo/seo";
-import { resetPasswordForEmail } from "@/lib/supabase/auth";
+import Seo from "@/shared/layout-components/seo/seo";
+import { resetPasswordForEmail } from "@/lib/supabase/auth/auth";
 
 const Basic = () => {
   const [email, setEmail] = useState("");
